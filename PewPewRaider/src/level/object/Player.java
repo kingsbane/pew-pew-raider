@@ -18,7 +18,7 @@ public class Player extends Object{
 
     public Player(Keyboard key){
         this.key = key;
-        
+
 
         setAnimatedSprite(AnimatedSprite.spr_player_static_1);
     }

@@ -47,11 +47,10 @@ public class Game extends Canvas implements Runnable{ //Canvas::Game "can use" R
         mouse = new Mouse();
         frame = new JFrame();
 
-
-        gameWorld = new GameWorld();
-
         addKeyListener(key);
         addMouseListener(mouse);
+
+        gameWorld = new GameWorld(key);
 
     }
 

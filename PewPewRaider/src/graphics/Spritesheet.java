@@ -10,7 +10,7 @@ public class Spritesheet{
     public final int SIZE;
     public int[] pixels;
 
-    public static Spritesheet spritesheet = new Spritesheet("Spritesheet.png" , 64);
+    //public static Spritesheet spritesheet = new Spritesheet("Spritesheet.png" , 64);
     public static Spritesheet playerSpritesheet = new Spritesheet("PlayerSpritesheet.png" , 64);
 
     public Spritesheet(String path, int size){
@@ -30,7 +30,7 @@ public class Spritesheet{
 
         } catch(IOException e){
             e.printStackTrace();
-            System.out.println("COULDN'T LOAD THE SPRITESHEET!!!");
+            System.out.println("unable to load the spritesheet...");
         }
 
     }

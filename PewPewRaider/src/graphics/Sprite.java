@@ -10,7 +10,7 @@ public class Sprite {
 
     //Sprites
     public static Sprite spr_void =  new Sprite(8, 0x000000);
-    public static Sprite spr_wall = new Sprite(8, 8, 0, Spritesheet.spritesheet);
+    //public static Sprite spr_wall = new Sprite(8, 8, 0, Spritesheet.spritesheet);
 
     public Sprite(int size, int x, int y, Spritesheet spritesheet) {
         this.SIZE = size;
@@ -44,7 +44,7 @@ public class Sprite {
             for(int x = 0; x < SIZE; x++){
                 pixels[x + y * SIZE] = spritesheet.pixels[(x + this.x) + (y + this.y) * spritesheet.SIZE];
 
-                System.out.println("pixel color: " + spritesheet.pixels[x+y*SIZE]);
+                //System.out.println("pixel color: " + spritesheet.pixels[x+y*SIZE]);
             }
         }
     }

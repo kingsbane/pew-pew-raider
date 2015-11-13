@@ -22,15 +22,18 @@ public class AnimatedSprite {
         this.spritesheet = spritesheet;
         this.SIZE = size;
         this.speed = speed;
+        time = 1;
 
         load();
     }
 
     public void tick(){
         time++;
+
         if(time % speed == 0){
             advanceToNextFrame();
         }
+        System.out.println("player ticked");
     }
 
     private void load(){
@@ -41,7 +44,9 @@ public class AnimatedSprite {
 
     private void advanceToNextFrame(){
         frameIndex++;
-        if(frameIndex > frames) frameIndex = 0;
+        frameIndex %= frames;
+
+        System.out.println("frame advanced...");
     }
 
     public Sprite getCurrentFrame(){
