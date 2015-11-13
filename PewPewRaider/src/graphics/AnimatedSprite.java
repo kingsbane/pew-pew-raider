@@ -15,7 +15,7 @@ public class AnimatedSprite {
 
     private ArrayList<Sprite> sprites = new ArrayList<>();
 
-    public static AnimatedSprite spr_player_static_1 = new AnimatedSprite(0, 0, 16, 3, 30, Spritesheet.playerSpritesheet);
+    public static AnimatedSprite spr_player_static_1 = new AnimatedSprite(0, 0, 16, 5, 10, Spritesheet.playerSpritesheet);
 
     public AnimatedSprite(int x, int y, int size, int frames, int speed, Spritesheet spritesheet){
         this.frames = frames;

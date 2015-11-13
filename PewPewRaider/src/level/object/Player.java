@@ -16,6 +16,8 @@ public class Player extends Object{
 
     private AnimatedSprite sprite;
 
+    public static final int WALK_SPEED = 2;
+
     public Player(Keyboard key){
         this.key = key;
 
@@ -27,10 +29,10 @@ public class Player extends Object{
         int xa = 0, ya = 0;
 
         key.update();
-        if(key.up)ya--;
-        if(key.down)ya++;
-        if(key.left)xa--;
-        if(key.right)xa++;
+        if(key.up)ya-= WALK_SPEED;
+        if(key.down)ya+= WALK_SPEED;
+        if(key.left)xa-= WALK_SPEED;
+        if(key.right)xa+= WALK_SPEED;
 
         move(xa, ya);
 
