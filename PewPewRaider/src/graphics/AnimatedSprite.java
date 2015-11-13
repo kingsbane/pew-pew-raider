@@ -15,6 +15,8 @@ public class AnimatedSprite {
 
     private ArrayList<Sprite> sprites = new ArrayList<>();
 
+    public static AnimatedSprite spr_player_static_1 = new AnimatedSprite(0, 0, 16, 3, 30, Spritesheet.playerSpritesheet);
+
     public AnimatedSprite(int x, int y, int size, int frames, int speed, Spritesheet spritesheet){
         this.frames = frames;
         this.spritesheet = spritesheet;
@@ -40,6 +42,10 @@ public class AnimatedSprite {
     private void advanceToNextFrame(){
         frameIndex++;
         if(frameIndex > frames) frameIndex = 0;
+    }
+
+    public Sprite getCurrentFrame(){
+        return sprites.get(frameIndex);
     }
 
 

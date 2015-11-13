@@ -14,6 +14,7 @@ public class Tile {
         this.sprite = sprite;
     }
 
+
     public void render(int x, int y, Screen screen){
         screen.renderTile(x << 3, y << 3, this);
     }
