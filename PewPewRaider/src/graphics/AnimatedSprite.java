@@ -15,9 +15,14 @@ public class AnimatedSprite {
 
     private ArrayList<Sprite> sprites = new ArrayList<>();
 
-    public static AnimatedSprite spr_player_static_1 = new AnimatedSprite(0, 0, 16, 5, 10, Spritesheet.playerSpritesheet);
+    public static AnimatedSprite spr_player_static_R = new AnimatedSprite(0, 0, 16, 5, 10, Spritesheet.playerSpritesheet);
+    public static AnimatedSprite spr_player_run_R = new AnimatedSprite(0, 16, 16, 4, 7, Spritesheet.playerSpritesheet);
+    public static AnimatedSprite spr_player_static_L = new AnimatedSprite(0, 48, 16, 5, 10, Spritesheet.playerSpritesheet);
+    public static AnimatedSprite spr_player_run_L = new AnimatedSprite(0, 32, 16, 4, 7, Spritesheet.playerSpritesheet);
 
     public AnimatedSprite(int x, int y, int size, int frames, int speed, Spritesheet spritesheet){
+        this.x = x;
+        this.y = y;
         this.frames = frames;
         this.spritesheet = spritesheet;
         this.SIZE = size;
