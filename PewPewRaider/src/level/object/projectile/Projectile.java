@@ -7,7 +7,7 @@ import level.object.Object;
  * Created by bc013806 on 11/16/2015.
  */
 public class Projectile extends Object{
-    private int speed, duration, timer;
+    protected int speed, duration, timer;
     public boolean expired = false;
 
     public Projectile(int x, int y, int speed, int duration){
@@ -15,12 +15,16 @@ public class Projectile extends Object{
         this.y = y;
         this.speed = speed;
         this.duration = duration;
+
         timer = 0;
+
+        System.out.println("created projectile...");
 
     }
 
     public void tick(){
         if(timer >= duration)expired = true;
+        x+=speed;
     }
 
     public void render(){
