@@ -1,9 +1,12 @@
 package level.object;
 
+import base.GameWorld;
 import event.Keyboard;
 import graphics.AnimatedSprite;
 import graphics.Screen;
 import graphics.Spritesheet;
+import level.Level;
+import level.object.projectile.Projectile;
 
 /**
  * Created by area5 on 11/5/2015.
@@ -26,7 +29,7 @@ public class Player extends Object{
         setAnimatedSprite(AnimatedSprite.spr_player_static_R);
     }
 
-    public void tick() {
+    public void tick(Level level) {
         int xa = 0, ya = 0;
 
         key.update();
@@ -46,13 +49,18 @@ public class Player extends Object{
             xa+= WALK_SPEED;
             if(!sprite.equals(AnimatedSprite.spr_player_run_R))setAnimatedSprite(AnimatedSprite.spr_player_run_R);
         }
-
         if(xa == 0){
-            if( isRight && !sprite.equals(AnimatedSprite.spr_player_run_R))setAnimatedSprite(AnimatedSprite.spr_player_run_R);
-            else if(!sprite.equals(AnimatedSprite.spr_player_static_L)) setAnimatedSprite(AnimatedSprite.spr_player_static_L);
+            //if no horizontal movement
+            if( isRight && !sprite.equals(AnimatedSprite.spr_player_static_R))setAnimatedSprite(AnimatedSprite.spr_player_static_R);
+            else if(!isRight && !sprite.equals(AnimatedSprite.spr_player_static_L)) setAnimatedSprite(AnimatedSprite.spr_player_static_L);
         }
-
         move(xa, ya);
+
+
+
+        if(key.space){
+            level.addProjectile(new Projectile(x, y, 10, 60));
+        }
 
         sprite.tick();
     }
@@ -61,6 +69,9 @@ public class Player extends Object{
         x += xa;
         y += ya;
 
+    }
+
+    public void shoot(){
     }
 
     public void render(Screen screen){ //renders the current frame of the animation
