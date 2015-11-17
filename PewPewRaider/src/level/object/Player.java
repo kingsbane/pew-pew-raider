@@ -4,6 +4,7 @@ import base.GameWorld;
 import event.Keyboard;
 import graphics.AnimatedSprite;
 import graphics.Screen;
+import graphics.Sprite;
 import graphics.Spritesheet;
 import level.Level;
 import level.PlayerBullet;
@@ -22,6 +23,8 @@ public class Player extends Object{
 
     public static final int WALK_SPEED = 2;
     public boolean isRight = true;
+    private int dir = 1;
+    private int shootTimer = 0;
 
     public Player(Keyboard key){
         this.key = key;
@@ -33,7 +36,12 @@ public class Player extends Object{
     public void tick(Level level) {
         int xa = 0, ya = 0;
 
+
         key.update();
+
+        //update direction
+        if(isRight)dir = 1;
+        else      dir = -1;
 
         //really ugly code that handles movement and sprite changes
         if(key.up){
@@ -59,10 +67,11 @@ public class Player extends Object{
         }
         move(xa, ya);
 
-
-
-        if(key.space){
-            level.addProjectile(new PlayerBullet(x, y, 10, 60));
+        if(key.space && shootTimer % 100 == 0){
+            level.addProjectile(new PlayerBullet(x + sprite.SIZE/2 + (AnimatedSprite.spr_playerbullet.SIZE/2 * dir), y + sprite.SIZE/ 4, 4 * dir, 60));
+            shootTimer = 1;
+        }else{
+            shootTimer++;
         }
 
         sprite.tick();

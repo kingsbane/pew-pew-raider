@@ -42,7 +42,10 @@ public class Sprite {
         System.out.println("loading...");
         for(int y = 0; y < SIZE; y++){
             for(int x = 0; x < SIZE; x++){
+                //filter out alphas...
+
                 pixels[x + y * SIZE] = spritesheet.pixels[(x + this.x) + (y + this.y) * spritesheet.SIZE];
+                System.out.println(pixels[x+y*SIZE]);
 
                 //System.out.println("pixel color: " + spritesheet.pixels[x+y*SIZE]);
             }

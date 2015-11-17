@@ -29,6 +29,10 @@ public class Spritesheet{
             image.getRGB(0, 0, w, h, pixels, 0, w);
             System.out.println("loaded the spritesheet...");
 
+            for(int i = 0; i < pixels.length; i++){
+                if(pixels[i] == -65281)pixels[i] = -1;
+            }
+
         } catch(IOException e){
             e.printStackTrace();
             System.out.println("unable to load the spritesheet...");
