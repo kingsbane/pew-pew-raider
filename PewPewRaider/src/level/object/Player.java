@@ -6,6 +6,7 @@ import graphics.AnimatedSprite;
 import graphics.Screen;
 import graphics.Spritesheet;
 import level.Level;
+import level.PlayerBullet;
 import level.object.projectile.Projectile;
 
 /**
@@ -33,6 +34,8 @@ public class Player extends Object{
         int xa = 0, ya = 0;
 
         key.update();
+
+        //really ugly code that handles movement and sprite changes
         if(key.up){
             ya-= WALK_SPEED;
         }
@@ -59,7 +62,7 @@ public class Player extends Object{
 
 
         if(key.space){
-            level.addProjectile(new Projectile(x, y, 10, 60));
+            level.addProjectile(new PlayerBullet(x, y, 10, 60));
         }
 
         sprite.tick();

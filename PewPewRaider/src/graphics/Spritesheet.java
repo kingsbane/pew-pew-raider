@@ -11,7 +11,8 @@ public class Spritesheet{
     public int[] pixels;
 
     //public static Spritesheet spritesheet = new Spritesheet("Spritesheet.png" , 64);
-    public static Spritesheet playerSpritesheet = new Spritesheet("PlayerSpritesheet.png" , 80);
+    public static Spritesheet playerSpritesheet = new Spritesheet("PlayerSpritesheet.png" , 128);
+    public static Spritesheet projectileSpritesheet = new Spritesheet("ProjectileSpritesheet.png" , 80);
 
     public Spritesheet(String path, int size){
         this.path = path;

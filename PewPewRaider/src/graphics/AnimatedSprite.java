@@ -20,6 +20,8 @@ public class AnimatedSprite {
     public static AnimatedSprite spr_player_static_L = new AnimatedSprite(0, 48, 16, 5, 10, Spritesheet.playerSpritesheet);
     public static AnimatedSprite spr_player_run_L = new AnimatedSprite(0, 32, 16, 4, 7, Spritesheet.playerSpritesheet);
 
+    public static AnimatedSprite spr_playerbullet = new AnimatedSprite(0, 0, 8, 4, 7, Spritesheet.projectileSpritesheet);
+
     public AnimatedSprite(int x, int y, int size, int frames, int speed, Spritesheet spritesheet){
         this.x = x;
         this.y = y;
@@ -38,7 +40,7 @@ public class AnimatedSprite {
         if(time % speed == 0){
             advanceToNextFrame();
         }
-        System.out.println("player ticked");
+
     }
 
     private void load(){

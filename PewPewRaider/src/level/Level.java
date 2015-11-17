@@ -28,21 +28,26 @@ public class Level{
         player.tick(this);
         for(Projectile p : projectiles){
             if(p.expired){
-                p = null;
+                projectiles.remove(projectiles.indexOf(p));
                 break;
             }
             p.tick();
         }
+
+
+
+
+
     }
 
     public void render(Screen screen){
         player.render(screen);
         for(Projectile p : projectiles){
-            p.render();
+            p.render(screen);
         }
     }
 
-    public void addProjectile(Projectile p){
+    public void addProjectile(Projectile p) {
         projectiles.add(p);
     }
 }
