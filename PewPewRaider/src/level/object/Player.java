@@ -67,13 +67,14 @@ public class Player extends Object{
         }
         move(xa, ya);
 
-        if(key.space && shootTimer % 100 == 0){
-            level.addProjectile(new PlayerBullet(x + sprite.SIZE/2 + (AnimatedSprite.spr_playerbullet.SIZE/2 * dir), y + sprite.SIZE/ 4, 4 * dir, 60));
-            shootTimer = 1;
-        }else{
-            shootTimer++;
-        }
+        if(key.space) {
+            if (shootTimer > 10) {
+                shoot(level);
+                shootTimer = 0;
+            }
 
+        }
+        shootTimer++;
         sprite.tick();
     }
 
@@ -83,7 +84,9 @@ public class Player extends Object{
 
     }
 
-    public void shoot(){
+    public void shoot(Level level){
+        level.addProjectile(new PlayerBullet(x + sprite.SIZE/2 + (AnimatedSprite.spr_playerbullet.SIZE/2 * dir), y + sprite.SIZE/ 4, 4 * dir, 60));
+        shootTimer = 1;
     }
 
     public void render(Screen screen){ //renders the current frame of the animation
